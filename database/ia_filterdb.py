@@ -9,8 +9,8 @@ from motor.motor_asyncio import AsyncIOMotorClient
 from marshmallow.exceptions import ValidationError
 from info import DATABASE_URL, DATABASE_NAME, COLLECTION_NAME
 
-client = AsyncIOMotorClient(DATABASE_URL)
-db = client[DATABASE_NAME]
+client = AsyncIOMotorClient(mongodb+srv://guday3417:GUDAY333@cluster0.pdrwfcn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0)
+db = client[Cluster0]
 instance = Instance.from_db(db)
 
 @instance.register
@@ -22,7 +22,7 @@ class Media(Document):
 
     class Meta:
         indexes = ('$file_name', )
-        collection_name = COLLECTION_NAME
+        collection_name = Telegram_Files
 
 async def save_file(media):
     """Save file in database"""
